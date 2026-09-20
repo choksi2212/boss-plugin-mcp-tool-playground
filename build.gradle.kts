@@ -10,7 +10,7 @@ plugins {
 group = "ai.rever.boss.plugin.dynamic"
 // 0.1.0: side panel + 4 MCP tools. Calls bypass host MCP policy by design
 // (see PlaygroundDispatcher); banner warns the operator.
-version = "0.1.0"
+version = "0.1.1"
 
 java {
     toolchain {
