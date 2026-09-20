@@ -1,0 +1,23 @@
+{
+  "manifestVersion": 1,
+  "pluginId": "ai.rever.boss.plugin.dynamic.mcptoolplayground",
+  "displayName": "MCP Tool Playground",
+  "version": "0.1.0",
+  "apiVersion": "1.0.93",
+  "minApiVersion": "1.0.93",
+  "minBossVersion": "9.4.2",
+  "mainClass": "ai.rever.boss.plugin.dynamic.playground.PlaygroundDynamicPlugin",
+  "type": "mixed",
+  "description": "Browse and invoke any MCP tool from any loaded plugin with editable JSON args. Calls BYPASS host MCP policy.",
+  "author": "Risa Labs",
+  "url": "https://github.com/choksi2212/boss-plugin-mcp-tool-playground",
+  "panel": {
+    "position": "left_bottom",
+    "priority": 74
+  },
+  "sandbox": {
+    "maxThreads": 4,
+    "maxRestartAttempts": 3,
+    "heartbeatIntervalMs": 5000
+  }
+}
