@@ -1,9 +1,9 @@
 name: Tests
 
 # build.yml only fires on push to main and delegates to the release workflow, so nothing
-# compiled this plugin before a merge landed. This runs on every pull request, which is what
-# makes it usable as a required status check - and only there, since build.yml already gates
-# the release and triggering on push too compiled every merge twice.
+# compiled this plugin before a merge landed. This runs on every pull request, which is
+# what makes it usable as a required status check - and only there, since build.yml already
+# gates the release and triggering on push too compiled every merge twice.
 on:
   pull_request:
 
@@ -59,7 +59,12 @@ jobs:
       # artifact the release actually ships, so a packaging break stays green until release.
       # --no-daemon is omitted deliberately; gradle/actions/setup-gradle discourages it and
       # its caching and build reporting are built around the daemon.
+      # The chmod is because the wrapper script is checked in from Windows, where the
+      # executable bit is not preserved through git; without it the workflow fails
+      # with "Permission denied" before any plugin work runs.
       - name: Compile, test, and assemble the plugin jar
-        run: ./gradlew build
+        run: |
+          chmod +x ./gradlew
+          ./gradlew build
         env:
           CI: 'true'
