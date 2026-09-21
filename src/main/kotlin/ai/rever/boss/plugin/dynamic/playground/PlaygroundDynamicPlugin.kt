@@ -24,7 +24,7 @@ class PlaygroundDynamicPlugin : DynamicPlugin {
     override val version: String = "0.1.0"
     override val description: String =
         "Browse and invoke MCP tools from any loaded plugin. Calls BYPASS host MCP policy."
-    override val author: String = "Risa Labs"
+    override val author: String = "choksi2212"
     override val url: String = "https://github.com/choksi2212/boss-plugin-mcp-tool-playground"
 
     private var dispatcher: PlaygroundDispatcher? = null

@@ -93,6 +93,11 @@ dependencies {
 
     // JSON parsing for tool args (McpToolArgs takes a Map<String, Any?>)
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
+    testImplementation(files("$bossPluginApiPath/build/libs/boss-plugin-api-1.0.93.jar"))
+    testImplementation("org.slf4j:slf4j-simple:2.0.13")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:2.3.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
 }
 
 // Task to build plugin JAR with compiled classes only
