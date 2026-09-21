@@ -9,7 +9,7 @@
   "mainClass": "ai.rever.boss.plugin.dynamic.playground.PlaygroundDynamicPlugin",
   "type": "mixed",
   "description": "Browse and invoke any MCP tool from any loaded plugin with editable JSON args. Calls BYPASS host MCP policy.",
-  "author": "Risa Labs",
+  "author": "choksi2212",
   "url": "https://github.com/choksi2212/boss-plugin-mcp-tool-playground",
   "panel": {
     "position": "left_bottom",
