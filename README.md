@@ -118,3 +118,24 @@ src/main/kotlin/ai/rever/boss/plugin/dynamic/playground/
 - Optional dependencies are reported as "missing" by the host's
   dependency dialog when the plugin is first enabled. The playground has
   none of its own - it depends only on the host's MCP registry.
+
+## Demo
+
+Walkthrough used in the hackathon submission:
+
+1. Build and install (`./gradlew buildPluginJar`, drop the jar into `~/.boss/plugins/dev/<pluginId>/v<ms>/`).
+2. Open the panel in the left sidebar's bottom slot. A banner is always visible at the top: **Calls made here BYPASS host MCP policy. Use only for plugin development.**
+3. The left column lists every MCP tool registered by every loaded plugin, grouped by `providerId` (the plugin that contributed the tool). Filter box at the top narrows the list.
+4. Pick any tool - the right column shows the tool name + description, an args editor pre-filled with required fields from the tool's `inputSchema`, and **Call** / **Clear** buttons.
+5. Click **Call** - the result panel shows `[ok]` or `[error]` followed by the tool's text payload, plus wall-clock duration in ms and a copy-to-clipboard button.
+6. Below the result panel, the last 20 calls (most-recent first) - each row re-copies the result on click. The history is shared with the four MCP tools (`mcp_playground_list_tools`, `mcp_playground_schema`, `mcp_playground_call`, `mcp_playground_history`), so calls from MCP land in the panel's history list and vice versa.
+
+From an in-terminal agent, the same surface is reachable without going through the host's `mcp__boss__<tool>` path:
+
+```text
+> mcp__boss__mcp_playground_list_tools()
+> mcp__boss__mcp_playground_schema({"toolName":"test_explorer_summarize"})
+> mcp__boss__mcp_playground_call({"toolName":"test_explorer_summarize","argsJson":"{\"dirPath\":\"/path\"}"})
+```
+
+Full walkthrough with sample panel layout and a sample invocation: see [DEMO.md](DEMO.md) at the top of the boss-plugins meta-repo.
